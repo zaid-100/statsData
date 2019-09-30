@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="classData.js" ></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+        
+        
+    <script>
+        //print results to screen as well as the console
+        var report = function(parent,answer)
+        {
+            d3.select(parent)
+                .append("p")
+                .text(answer.toString());
+            console.log("parent"+parent,answer);
+        }
+    </script>
+            
+        
+    </head> 
+<body>
+
+<h1>Finding the means</h1>
+
+    
+<div id="A1">
+<h3>Create a function to get the grade from a quiz object
+</h3>
+<script>
+ var getGrade = function(quiz)
+ {
+    return quiz.grade;
+ }
+    
+var answer=getGrade; 
+report("#A1",answer)    
+</script>
+</div>
+
+<div id="A2">
+<h3>Find the mean of the quiz grades for the first penguin.</h3>
+<script>
+var answer="please complete";
+report("#A2",answer)    
+</script>
+</div>
+ 
+<div id="A3">
+<h3>Create a function to find the mean of the quiz grades for a given penguin.</h3>
+<script>
+var answer="please complete";
+report("#A3",answer)    
+</script>
+</div>
+
+<div id="A4">
+<h3>Find the mean quiz score of each penguins.  Use one line of "code"</h3>
+<script>
+var answer="please complete";
+report("#A4",answer)    
+</script>
+    </div>
+
+<div id="A5">
+<h3>Find the mean of all the quiz score of the class. </h3>
+<script>
+var answer="please complete";
+report("#A5",answer)    
+</script>
+    </div>
+    
+<h1>Working with Objects</h1>
+    
+<div id="A6">
+<h3>Create a function that takes a penguin object and returns an object that contains one attribute, the picture of that penguin</h3>
+<script>
+var answer="please complete";
+report("#A6",answer)    
+</script>
+    </div>
+
+<div id="A7">
+<h3>Expand your function from the last one, so that the object it returns not only has a picture attribute, but also new attribute called quizMean, which is the mean of that penguins quiz scores</h3>
+<script>
+//be sure to test your function out.
+var answer="please complete";
+report("#A7",answer)    
+</script>
+    </div>
+
+<div id="A8">
+<h3>With one line of code, return a list of objects that contain the picture and meanQuiz grade of all penguins</h3>
+<script>
+var answer="please complete";
+report("#A8",answer)    
+</script>
+    </div>
+
+<div id="A9">
+<h3>Create a new function that takes a penguin and extracts/generates the following info about a penguin in an object</h3>
+    <ul>
+        <li>picture</li>
+        <li>meanQuiz</li>
+        <li>meanTests</li>
+        <li>meanHW</li>
+        <li>finalGrade</li>
+    </ul>
+<script>
+var answer="please complete";
+report("#A9",answer)    
+</script>
+    </div>
+
+<div id="A10">
+<h3>With one line of code, return a list of objects where each objects contains all of the summary info about each penguin.</h3>
+<script>
+var answer="please complete";
+report("#A10",answer)    
+</script>
+    </div>
+    
+    
+<h1> Calculating a grade</h1>
+    <p>The penguin sylabus has the following information</p>
+    <ul>
+    <li>Final: 35%</li>
+    <li>Tests: 30%</li>
+    <li>Quiz: 20%</li>
+    <li>Homework: 15%</li>
+    </ul>
+
+<div id="B1">
+<h3>Write a function that takes the classroom data and returns an array of objects.  Each object will have two attributes: a picture and the final grade in the class.</h3>
+    
+<script>
+
+    report("#B1",answer);
+</script>
+    </div>
+    
+    
+    
+    
+    
+<h1>Taking it day-by-day</h1>
+
+<p>Lets try something harder.  Below, you will be asked to solve a problem, however, the step by step instructions will not be available to you.  THe answers will be different that you have done before, but the process is largly the same.  Figure out how to solve the problem for one penguin and then exploit your solution to solve the problem for all penguins.</p>
+    
+
+<div id="C1">
+<h3>Write a function to find the average grade of all students on the first quiz.</h3>
+    <p>Here is what you should get.=6.217391304347826</p>
+<script>
+var answer="Please Complete";
+report("#C1",answer)    
+</script>
+    </div>
+    
+<h1>What to submit</h1>
+    Create a website to explain <em>how</em> you solved questions B1 and C1.  Placing code on a web site is required, use the 
+    <pre> 
+    &#60;pre&#62; tag &#60;/pre&#62; to put code on a website
+    </pre>.  However code alone is not sufficient to get an 8.  You must explain how it works.  If want to do something extra see D1 and D2 below.
+
+    
+<h1>Extra Work</h1>    
+    
+<p>For those wishing to do soemthing more complex give this a shot, it should take a lot of fiddling to get each of these.</p>
+    
+<div id="D1">
+<h3>Write a function that takes a number, day, and returns the average grade of all students on that day's quiz.</h3>
+<p>Hint you may define helper functions inside of a function.</p>
+<script>
+    
+var answer="Complete for Extra";
+    
+report("#D1",answer)    
+</script>
+    </div>
+    
+<div id="D2">
+<h3>Write a function that returns an array of the class averages the students earn each day on thier quiz.</h3>
+<p>If you solved D1, you really just need a way to get an array of numbers to map.  You could do this by hand, but if you look up d3.range, you might find a better way to do it.</p>
+<script>
+var answer="Complete for Extra";
+    
+report("#D2",answer);    
+</script>
+    </div>
+    
+
+    
+
+    
+    
+</body>
+</html>
