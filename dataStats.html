@@ -63,8 +63,8 @@ report("#A3",answer)
 <div id="A4">
 <h3>Find the mean quiz score of each penguins.  Use one line of "code"</h3>
 <script>
-    getMean(classroom)
-var answer="please complete";
+
+var answer= classroom.map(getMean);
 report("#A4",answer)    
 </script>
     </div>
@@ -72,9 +72,11 @@ report("#A4",answer)
 <div id="A5">
 <h3>Find the mean of all the quiz score of the class. </h3>
 <script>
-var answer="please complete";
+ 
+var answer= d3.mean(classroom.map(getMean));;
 report("#A5",answer)    
 </script>
+   
     </div>
     
 <h1>Working with Objects</h1>
