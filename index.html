@@ -1,1 +1,53 @@
 
+<html>
+    <head> <style>
+        body {
+        background-color: blanchedalmond;
+       font-family: sans-serif;
+            align-content: center;
+        }    
+        h1 {
+         border: solid;
+        
+            }
+        pre {
+            color: blue;
+        }
+        </style>
+    </head>
+    <body>
+        
+    <h1> Explanation for Javascript Lab
+        </h1>    
+        <h2> A 1 </h2>
+        <p> For A 1, first a variable was given a name of "getGrade" and then it was given a type of a function which performs an action. This Action specifically returns the grade from a quiz. The line of code used in the function was: </p> <br>
+          <pre>  var getGrade = function(quiz)
+ {
+    return quiz.grade;
+ } </pre> <br>
+    <p> the "quiz" inside the parenthesis is just an arbitrary name we give to the parameter.the "return" tells javascript to invoke the code coming after which is "quiz.grade".
+        </p>
+        <h2> A 2</h2>
+        <p> For this question, we had to use d3 tool, "mean". The mean gathers the data from an identified array and calculates the mean.The function that we created for A1 was used in the identifcation for the quiz grades. We used the "classroom[0]" to identify the first penguin.Classroom is an array that contains penguins as objects. Thus, the first penguin was identified and then "quizes" was typed to identify an additional array in the first penguin which contains grades as an attribute in an object, as shown below: </p> <br>
+        <pre>
+            d3.mean(classroom[0].quizes,getGrade);</pre> 
+    <h2> A3 </h2>
+        <p> For this question we made a new function "getMean" which performed all the actions done in A 2, through the same method used in A 1. This was done as show below: <br> </p>
+        <pre>
+        var getMean = function(penguin)
+    {
+    return d3.mean(penguin.quizes,getGrade);    
+    }
+        </pre>
+        <p> We used the function getGrade to return the value we need for this function.We had to call getGrade because we need the grade for the quiz from a specified penguin. 
+        </p>
+            <h2> A 4</h2>
+        <p> We already know how to find the mean for any penguin by using our getMean function. so to get the mean for each penguin we have to call this function for all of the penguins inside the classroom. In order to do this we used Map which is a method that creates an array of specified things, in our case these were values for grades. This was done as shown below: <br> </p>
+        <pre> classroom.map(getMean)
+        </pre>
+        <h2>A 5</h2>
+     <p>Since we created code in A4 that produced an array of the mean quiz scores of each penguin we can now apply the D3 mean tool(since it only accepts arrays) to easily find the mean of all quiz scores. This was done as shown below:
+        </p>
+        <pre> d3.mean(classroom.map(getMean)) </pre>
+    </body>
+</html>
