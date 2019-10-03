@@ -17,6 +17,7 @@ var classroom = [
         day: 4,
         grade: 30,
         max: 50
+        max: 50
       },
       {
         day: 6,
