@@ -176,12 +176,41 @@ report("#A10",answer)
 <h3>Write a function that takes the classroom data and returns an array of objects.  Each object will have two attributes: a picture and the final grade in the class.</h3>
     
 <script>
-var finalistpix = [];
-    finalistpix.push({
-        
-    })
+var weightedQuiz = function(penguin)
+   { 
+    var quiz= getMean(penguin)    
+   
+      return 0.2*quiz;
+}
+var weightedFinal = function(penguin)
+{
+    return 0.35*penguin.final[0].grade;
+}
+
+    var meanTest = function(penguin)
+    {
+    return  d3.mean(penguin.test,getGrade);
+    }
+    var weightedTest = function(penguin)
+    {
+    var testGrade = meanTest(penguin)
+    return 0.3*testGrade;
+    }
+    var meanHW = function(penguin)
+    {
+    return d3.mean(penguin.homework,getGrade);
+    }
+    var weightedHW = function(penguin)
+    {
+        var HWgrade = meanHW(penguin)
+        return 0.15*HWgrade;
+    }
+    var finalGrade = function(penguin)
+    {
+        return weightedHW(penguin)+weightedFinal(penguin)+weightedQuiz(penguin)+weightedTest(penguin);
+    }
     
-    var answer= 
+    var answer=;
     report("#B1",answer);
 </script>
     </div>
@@ -199,7 +228,10 @@ var finalistpix = [];
 <h3>Write a function to find the average grade of all students on the first quiz.</h3>
     <p>Here is what you should get.=6.217391304347826</p>
 <script>
-var answer="Please Complete";
+    var getMeanFirst = function(penguin)
+    {
+    (penguin.quizes[0],getGrade)}
+var answer= classroom.map(getMeanFirst);
 report("#C1",answer)    
 </script>
     </div>
