@@ -230,8 +230,8 @@ var weightedFinal = function(penguin)
 <script>
     var getMeanFirst = function(penguin)
     {
-    (penguin.quizes[0],getGrade)}
-var answer= classroom.map(getMeanFirst);
+return penguin.quizes[0].grade;}
+var answer= d3.mean(classroom.map(getMeanFirst));
 report("#C1",answer)    
 </script>
     </div>
