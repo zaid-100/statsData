@@ -209,8 +209,16 @@ var weightedFinal = function(penguin)
     {
         return weightedHW(penguin)+weightedFinal(penguin)+weightedQuiz(penguin)+weightedTest(penguin);
     }
+    var picFinal = function(penguin)
+    {
+        var object= {
+            pic: getPic(penguin),
+            FINALGRADE: finalGrade(penguin)
+        }
+        return object;
+    }
     
-    var answer=;
+    var answer= picFinal;
     report("#B1",answer);
 </script>
     </div>

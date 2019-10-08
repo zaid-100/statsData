@@ -52,5 +52,103 @@
      <p>Since we created code in A4 that produced an array of the mean quiz scores of each penguin we can now apply the D3 mean tool(since it only accepts arrays) to easily find the mean of all quiz scores. This was done as shown below:
         </p>
         <pre> d3.mean(classroom.map(getMean)) </pre>
+        <h2>A 6</h2>
+        <p>
+        For 6 we first named the function getPic because we are essentially getting the picture of the penguin. The input to the function would be penguin (classroom), and the output would give us an object with the picture in it. So for the function code we first needed to make an object, then put stuff inside that object which was the picture. We did this as shown below:
+        </p>
+        <pre> var getPic= function(penguin)
+    {
+        var object = {}
+            object.Pix = penguin.picture;
+    return object        
+            } </pre>
+        <h2>A 7</h2>
+        <p> For 7 we just expanded on the function from A 6. The initial steps were the same, we just had to add another attribute called quizMean. This was done as followed:
+        </p>
+        <pre> var getPicMean= function(penguin)
+    {
+        var object = {}
+            object.Pix = penguin.picture;
+            object.MN  = d3.mean(penguin.quizes,getGrade);       
+    return object        
+            }</pre>
+        <h2> A 8
+        </h2>
+        <p> "The classroom.map" tools allows us to apply a function to all the penguins(classroom). Since our function to get the picture and meanQuiz was already made, the objective was achieved as followed:</p>
+        <pre> classroom.map(getPicMean) </pre>
+        <h2> A9 </h2>
+<p> To get all the information from a penguin into an object, we first needed to make a function that makes an object and puts the information into it. So, the function was named "getEverything" and its input was obviously penguins. We first made a box inside the function and added stuff to it the same was as we did before. This was only changed for the Final grade as it was in an array, so we just had to type "penguin.final[0].grade" in order to select it. a "Return object" command was then used to return the object. This was done as followed:</p>
+        <pre>     var getEverything= function(penguin)
+    {
+        var object = {}
+            object.Pix = penguin.picture;
+            object.MNQ  = d3.mean(penguin.quizes,getGrade);       
+            object.MNT  = d3.mean(penguin.test,getGrade);
+            object.MNHW  = d3.mean(penguin.homework,getGrade);
+            object.FNL  = penguin.final[0].grade;
+        
+        
+        
+        
+        return object        
+            } </pre>
+        <h2> A 10 </h2>
+<p> This was done in the same way as A8, using the "classroom.map" command on the "getEverything" function as followed:     </p>
+        <pre> classroom.map(getEverything) </pre>
+   <h2> B1 </h2>     
+    <p> To put the weighted Final Grade and the picture in a final Object, we first needed to find the weighted Final Grade. This was done using a series of functions crafted to find the mean of each sub-section and then to find the weightage adjusted points scored. The functions were formulated as followed: </p>    
+    <pre> var weightedQuiz = function(penguin)
+   { 
+    var quiz= getMean(penguin)    
+   
+      return 0.2*quiz;
+}
+var weightedFinal = function(penguin)
+{
+    return 0.35*penguin.final[0].grade;
+}
+
+    var meanTest = function(penguin)
+    {
+    return  d3.mean(penguin.test,getGrade);
+    }
+    var weightedTest = function(penguin)
+    {
+    var testGrade = meanTest(penguin)
+    return 0.3*testGrade;
+    }
+    var meanHW = function(penguin)
+    {
+    return d3.mean(penguin.homework,getGrade);
+    }
+    var weightedHW = function(penguin)
+    {
+        var HWgrade = meanHW(penguin)
+        return 0.15*HWgrade;
+    } </pre>
+    <p>    These functions were then used in a combined functioned which simply summed all the weightage adjusted points scored by the penguin. This was done using the following function, which outputs the final Grade for the penguin:
+        </p> 
+        <pre> var finalGrade = function(penguin)
+    {
+        return weightedHW(penguin)+weightedFinal(penguin)+weightedQuiz(penguin)+weightedTest(penguin);
+    } </pre>
+        <p> The final step was to make a function that would return the picture of the input penguin and the final Grade for that penguin. This was done similar to question A 7 as shown below: </p>
+        <pre> var picFinal = function(penguin)
+    {
+        var object= {
+            pic: getPic(penguin),
+            FINALGRADE: finalGrade(penguin)
+        }
+        return object;
+    } </pre>
+        <h2> C1 </h2>
+        <p>  For this question, we first made a function that returned just the grade on the first quiz for a selected penguin. Then, the "d3.mean" and "classroom.map" tools were collectively used to find the mean of all the penguins on the first quiz. This was done as followed:
+         </p>
+        <pre> var getMeanFirst = function(penguin)
+    {
+return penguin.quizes[0].grade;}
+d3.mean(classroom.map(getMeanFirst));
+</pre>
+        <p>  And thus, the Lab was DONE. </p>
     </body>
 </html>
